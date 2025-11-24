@@ -2,37 +2,37 @@
 
 /* ===== Tailwind CSS v4 主题配置 ===== */
 @theme {
-	/* 主色调 - 深蓝色系 */
-	--color-foundry-primary: #1a5490;
-	--color-foundry-primary-dark: #0d3a6b;
-	--color-foundry-primary-light: #2668b3;
+	/* 主色调 - 科技蓝 */
+	--color-foundry-primary: #1890ff;
+	--color-foundry-primary-dark: #096dd9;
+	--color-foundry-primary-light: #40a9ff;
 
-	/* 次要色 - 青色/强调色 */
-	--color-foundry-secondary: #00d4ff;
-	--color-foundry-secondary-dark: #00a8cc;
+	/* 次要色 - 青色 */
+	--color-foundry-secondary: #13c2c2;
+	--color-foundry-secondary-dark: #08979c;
 
-	/* 背景色 */
-	--color-foundry-bg: #0a0e1a;
-	--color-foundry-bg-secondary: #111827;
+	/* 背景色 - 以 #141414 为主 */
+	--color-foundry-bg: #141414;
+	--color-foundry-bg-secondary: #1a1a1a;
 
-	/* 表面/卡片色 */
-	--color-foundry-surface: #1e293b;
-	--color-foundry-surface-hover: #2d3a4f;
+	/* 表面/卡片色 - 深灰系 */
+	--color-foundry-surface: #1f1f1f;
+	--color-foundry-surface-hover: #252525;
 
-	/* 边框色 */
-	--color-foundry-border: #334155;
-	--color-foundry-border-light: #475569;
+	/* 边框色 - 微妙的灰色分隔 */
+	--color-foundry-border: #303030;
+	--color-foundry-border-light: #3a3a3a;
 
-	/* 文本色 */
-	--color-foundry-text-primary: #f1f5f9;
-	--color-foundry-text-secondary: #94a3b8;
-	--color-foundry-text-muted: #64748b;
+	/* 文本色 - 高对比度 */
+	--color-foundry-text-primary: #ffffff;
+	--color-foundry-text-secondary: #a0a0a0;
+	--color-foundry-text-muted: #707070;
 
 	/* 状态色 */
-	--color-foundry-success: #10b981;
-	--color-foundry-warning: #f59e0b;
-	--color-foundry-error: #ef4444;
-	--color-foundry-info: #3b82f6;
+	--color-foundry-success: #52c41a;
+	--color-foundry-warning: #faad14;
+	--color-foundry-error: #ff4d4f;
+	--color-foundry-info: #1890ff;
 }
 
 /* ===== 传统 CSS 变量（用于 style 属性） ===== */
@@ -55,8 +55,8 @@
 	--foundry-warning: var(--color-foundry-warning);
 	--foundry-error: var(--color-foundry-error);
 	--foundry-info: var(--color-foundry-info);
-	--foundry-glass-bg: rgba(30, 41, 59, 0.8);
-	--foundry-overlay: rgba(10, 14, 26, 0.9);
+	--foundry-glass-bg: rgba(31, 31, 31, 0.7);
+	--foundry-overlay: rgba(20, 20, 20, 0.95);
 }
 
 /* 全局样式 */

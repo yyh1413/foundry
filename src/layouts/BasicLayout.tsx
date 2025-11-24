@@ -90,10 +90,7 @@ export default function BasicLayout() {
 	}
 
 	return (
-		<div
-			className="flex flex-col h-screen w-full relative overflow-hidden"
-			style={{ background: "var(--foundry-bg)", color: "var(--foundry-text-primary)" }}
-		>
+		<div className="flex flex-col h-screen w-full relative overflow-hidden bg-foundry-bg text-foundry-text-primary">
 			{/* 顶部导航栏 */}
 			<TopNavBar
 				openApps={openApps}
@@ -107,10 +104,7 @@ export default function BasicLayout() {
 			{/* 主工作区 */}
 			<main className="relative flex-1 z-10 p-2 overflow-hidden">
 				<div className="w-full h-full animate-in fade-in zoom-in-[0.99] duration-200">
-					<div
-						className="h-full w-full glass-panel rounded-xl flex flex-col overflow-hidden shadow-2xl"
-						style={{ border: "1px solid var(--foundry-border)" }}
-					>
+					<div className="h-full w-full glass-panel rounded-xl flex flex-col overflow-hidden shadow-2xl border border-foundry-border">
 						<Outlet />
 					</div>
 				</div>
