@@ -1,11 +1,109 @@
-@import "tailwindcss" layer(utilities);
+@import "tailwindcss";
 
-/* 禁用 Tailwind 的基础样式重置，避免与 Ant Design 冲突 */
-@layer base {
-	/* 空的 base layer，这样就不会应用 Tailwind 的默认样式重置 */
+/* ===== Tailwind CSS v4 主题配置 ===== */
+@theme {
+	/* 主色调 - 深蓝色系 */
+	--color-foundry-primary: #1a5490;
+	--color-foundry-primary-dark: #0d3a6b;
+	--color-foundry-primary-light: #2668b3;
+
+	/* 次要色 - 青色/强调色 */
+	--color-foundry-secondary: #00d4ff;
+	--color-foundry-secondary-dark: #00a8cc;
+
+	/* 背景色 */
+	--color-foundry-bg: #0a0e1a;
+	--color-foundry-bg-secondary: #111827;
+
+	/* 表面/卡片色 */
+	--color-foundry-surface: #1e293b;
+	--color-foundry-surface-hover: #2d3a4f;
+
+	/* 边框色 */
+	--color-foundry-border: #334155;
+	--color-foundry-border-light: #475569;
+
+	/* 文本色 */
+	--color-foundry-text-primary: #f1f5f9;
+	--color-foundry-text-secondary: #94a3b8;
+	--color-foundry-text-muted: #64748b;
+
+	/* 状态色 */
+	--color-foundry-success: #10b981;
+	--color-foundry-warning: #f59e0b;
+	--color-foundry-error: #ef4444;
+	--color-foundry-info: #3b82f6;
 }
 
+/* ===== 传统 CSS 变量（用于 style 属性） ===== */
+:root {
+	--foundry-primary: var(--color-foundry-primary);
+	--foundry-primary-dark: var(--color-foundry-primary-dark);
+	--foundry-primary-light: var(--color-foundry-primary-light);
+	--foundry-secondary: var(--color-foundry-secondary);
+	--foundry-secondary-dark: var(--color-foundry-secondary-dark);
+	--foundry-bg: var(--color-foundry-bg);
+	--foundry-bg-secondary: var(--color-foundry-bg-secondary);
+	--foundry-surface: var(--color-foundry-surface);
+	--foundry-surface-hover: var(--color-foundry-surface-hover);
+	--foundry-border: var(--color-foundry-border);
+	--foundry-border-light: var(--color-foundry-border-light);
+	--foundry-text-primary: var(--color-foundry-text-primary);
+	--foundry-text-secondary: var(--color-foundry-text-secondary);
+	--foundry-text-muted: var(--color-foundry-text-muted);
+	--foundry-success: var(--color-foundry-success);
+	--foundry-warning: var(--color-foundry-warning);
+	--foundry-error: var(--color-foundry-error);
+	--foundry-info: var(--color-foundry-info);
+	--foundry-glass-bg: rgba(30, 41, 59, 0.8);
+	--foundry-overlay: rgba(10, 14, 26, 0.9);
+}
+
+/* 全局样式 */
 body {
 	margin: 0;
 	min-height: 100vh;
+	background-color: var(--foundry-bg);
+	color: var(--foundry-text-primary);
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* 玻璃态效果 */
+.glass-panel {
+	background: var(--foundry-glass-bg);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+}
+
+/* 滚动条样式 */
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--foundry-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--foundry-border);
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--foundry-border-light);
 }

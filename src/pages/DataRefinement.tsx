@@ -1,0 +1,41 @@
+import { Card } from "antd"
+import { FlaskConical } from "lucide-react"
+
+export default function DataRefinement() {
+	return (
+		<div className="p-6 space-y-6 h-full overflow-auto">
+			<div className="flex items-center gap-3">
+				<div
+					className="w-12 h-12 rounded-lg flex items-center justify-center"
+					style={{ background: "var(--foundry-primary)" }}
+				>
+					<FlaskConical className="w-6 h-6 text-white" />
+				</div>
+				<div>
+					<h1
+						className="text-2xl font-bold"
+						style={{ color: "var(--foundry-text-primary)" }}
+					>
+						数据精炼
+					</h1>
+					<p style={{ color: "var(--foundry-text-secondary)" }}>
+						缺陷标注与清洗
+					</p>
+				</div>
+			</div>
+
+			<Card
+				title="数据处理管道"
+				style={{
+					background: "var(--foundry-surface)",
+					border: `1px solid var(--foundry-border)`,
+				}}
+			>
+				<p style={{ color: "var(--foundry-text-secondary)" }}>
+					数据精炼功能开发中...
+				</p>
+			</Card>
+		</div>
+	)
+}
+

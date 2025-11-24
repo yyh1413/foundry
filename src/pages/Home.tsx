@@ -1,80 +1,212 @@
-import { useRequest } from "ahooks"
-import { Button, Card, Space, Typography } from "antd"
+import { Card, Col, Row, Statistic, Progress } from "antd"
+import { Activity, Database, Hammer, ShieldCheck, TrendingUp } from "lucide-react"
 import dayjs from "dayjs"
 import { useUserStore } from "@/store"
 
-const { Title, Paragraph, Text } = Typography
-
-export default function Home() {
+export default function Dashboard() {
 	const { userInfo } = useUserStore()
 
-	// ahooks useRequest 示例
-	const { data, loading, run } = useRequest(
-		async () => {
-			// 模拟 API 请求
-			return new Promise((resolve) => {
-				setTimeout(() => {
-					resolve({
-						message: "Hello from API!",
-						time: dayjs().format("YYYY-MM-DD HH:mm:ss"),
-					})
-				}, 1000)
-			})
+	const stats = [
+		{
+			title: "数据总量",
+			value: 1283,
+			unit: "GB",
+			icon: Database,
+			color: "var(--foundry-primary)",
 		},
 		{
-			manual: true,
+			title: "训练任务",
+			value: 24,
+			unit: "个",
+			icon: Hammer,
+			color: "var(--foundry-secondary)",
 		},
-	)
+		{
+			title: "模型部署",
+			value: 12,
+			unit: "个",
+			icon: Activity,
+			color: "var(--foundry-success)",
+		},
+		{
+			title: "安全事件",
+			value: 0,
+			unit: "次",
+			icon: ShieldCheck,
+			color: "var(--foundry-warning)",
+		},
+	]
 
 	return (
-		<div className="space-y-6">
-			<Card>
-				<Space direction="vertical" size="large" className="w-full">
-					<Title level={2}>欢迎使用 Foundry Platform 🎉</Title>
+		<div className="p-6 space-y-6 h-full overflow-auto">
+			{/* 欢迎信息 */}
+			<div
+				className="p-6 rounded-lg"
+				style={{
+					background: "var(--foundry-surface)",
+					border: `1px solid var(--foundry-border)`,
+				}}
+			>
+				<h1
+					className="text-2xl font-bold mb-2"
+					style={{ color: "var(--foundry-text-primary)" }}
+				>
+					欢迎回来，{userInfo?.username || "Engineer"}！
+				</h1>
+				<p style={{ color: "var(--foundry-text-secondary)" }}>
+					{dayjs().format("YYYY年MM月DD日 HH:mm")} | 系统运行正常
+				</p>
+			</div>
 
-					<Paragraph>
-						这是一个基于 <Text strong>Vite + React + TypeScript</Text>{" "}
-						的现代化前端项目模板
-					</Paragraph>
-
-					<div>
-						<Title level={4}>技术栈：</Title>
-						<ul className="list-disc list-inside space-y-2">
-							<li>⚡️ Vite - 下一代前端构建工具</li>
-							<li>⚛️ React 19 - UI 框架</li>
-							<li>🔷 TypeScript - 类型安全</li>
-							<li>🎨 Ant Design - UI 组件库</li>
-							<li>🌊 Tailwind CSS - 原子化 CSS 框架</li>
-							<li>📦 Zustand - 轻量级状态管理</li>
-							<li>🔄 Axios - HTTP 客户端</li>
-							<li>🪝 ahooks - React Hooks 库</li>
-							<li>📅 dayjs - 日期处理库</li>
-							<li>🔧 Biome - 代码格式化和检查工具</li>
-						</ul>
-					</div>
-
-					{userInfo && (
-						<Card type="inner" title="用户信息">
-							<p>用户名: {userInfo.username}</p>
-							<p>邮箱: {userInfo.email}</p>
-						</Card>
-					)}
-
-					<Card type="inner" title="ahooks 和 dayjs 示例">
-						<Space direction="vertical">
-							<Text>当前时间: {dayjs().format("YYYY年MM月DD日 HH:mm:ss")}</Text>
-							<Button type="primary" onClick={run} loading={loading}>
-								发起请求
-							</Button>
-							{data && (
-								<div>
-									<Text type="success">响应数据: {JSON.stringify(data)}</Text>
+			{/* 统计卡片 */}
+			<Row gutter={[16, 16]}>
+				{stats.map((stat, index) => {
+					const Icon = stat.icon
+					return (
+						<Col xs={24} sm={12} lg={6} key={index}>
+							<Card
+								style={{
+									background: "var(--foundry-surface)",
+									border: `1px solid var(--foundry-border)`,
+								}}
+							>
+								<div className="flex items-center justify-between">
+									<div>
+										<p
+											className="text-sm mb-2"
+											style={{ color: "var(--foundry-text-secondary)" }}
+										>
+											{stat.title}
+										</p>
+										<p
+											className="text-3xl font-bold"
+											style={{ color: "var(--foundry-text-primary)" }}
+										>
+											{stat.value}
+											<span className="text-sm ml-1">{stat.unit}</span>
+										</p>
+									</div>
+									<div
+										className="w-12 h-12 rounded-lg flex items-center justify-center"
+										style={{ background: `${stat.color}20` }}
+									>
+										<Icon className="w-6 h-6" style={{ color: stat.color }} />
+									</div>
 								</div>
-							)}
-						</Space>
+							</Card>
+						</Col>
+					)
+				})}
+			</Row>
+
+			{/* 系统状态 */}
+			<Row gutter={[16, 16]}>
+				<Col xs={24} lg={12}>
+					<Card
+						title="系统资源使用"
+						style={{
+							background: "var(--foundry-surface)",
+							border: `1px solid var(--foundry-border)`,
+							color: "var(--foundry-text-primary)",
+						}}
+					>
+						<div className="space-y-4">
+							<div>
+								<div className="flex justify-between mb-2">
+									<span style={{ color: "var(--foundry-text-secondary)" }}>
+										CPU 使用率
+									</span>
+									<span style={{ color: "var(--foundry-text-primary)" }}>
+										45%
+									</span>
+								</div>
+								<Progress
+									percent={45}
+									strokeColor="var(--foundry-primary)"
+									trailColor="var(--foundry-bg)"
+								/>
+							</div>
+							<div>
+								<div className="flex justify-between mb-2">
+									<span style={{ color: "var(--foundry-text-secondary)" }}>
+										内存使用率
+									</span>
+									<span style={{ color: "var(--foundry-text-primary)" }}>
+										68%
+									</span>
+								</div>
+								<Progress
+									percent={68}
+									strokeColor="var(--foundry-secondary)"
+									trailColor="var(--foundry-bg)"
+								/>
+							</div>
+							<div>
+								<div className="flex justify-between mb-2">
+									<span style={{ color: "var(--foundry-text-secondary)" }}>
+										GPU 使用率
+									</span>
+									<span style={{ color: "var(--foundry-text-primary)" }}>
+										82%
+									</span>
+								</div>
+								<Progress
+									percent={82}
+									strokeColor="var(--foundry-warning)"
+									trailColor="var(--foundry-bg)"
+								/>
+							</div>
+						</div>
 					</Card>
-				</Space>
-			</Card>
+				</Col>
+
+				<Col xs={24} lg={12}>
+					<Card
+						title="最近活动"
+						style={{
+							background: "var(--foundry-surface)",
+							border: `1px solid var(--foundry-border)`,
+							color: "var(--foundry-text-primary)",
+						}}
+					>
+						<div className="space-y-3">
+							{[
+								{ time: "10:24", content: "模型训练任务 #1283 已完成", type: "success" },
+								{ time: "09:45", content: "数据接入任务正在运行", type: "info" },
+								{ time: "09:12", content: "系统备份已完成", type: "success" },
+								{ time: "08:30", content: "安全扫描完成，未发现异常", type: "success" },
+							].map((activity, index) => (
+								<div
+									key={index}
+									className="flex items-start gap-3 p-3 rounded"
+									style={{ background: "var(--foundry-bg)" }}
+								>
+									<div
+										className="w-2 h-2 rounded-full mt-2"
+										style={{
+											background:
+												activity.type === "success"
+													? "var(--foundry-success)"
+													: "var(--foundry-info)",
+										}}
+									/>
+									<div className="flex-1">
+										<p style={{ color: "var(--foundry-text-primary)" }}>
+											{activity.content}
+										</p>
+										<p
+											className="text-xs mt-1"
+											style={{ color: "var(--foundry-text-muted)" }}
+										>
+											{activity.time}
+										</p>
+									</div>
+								</div>
+							))}
+						</div>
+					</Card>
+				</Col>
+			</Row>
 		</div>
 	)
 }

@@ -20,7 +20,8 @@
 			"style": {
 				"noNonNullAssertion": "off",
 				"useTemplate": "off",
-				"useImportType": "off"
+				"useImportType": "off",
+				"useConsistentBuiltinInstantiation": "off"
 			},
 			"suspicious": {
 				"noExplicitAny": "off",
@@ -32,6 +33,9 @@
 			},
 			"complexity": {
 				"noForEach": "off"
+			},
+			"nursery": {
+				"all": false
 			}
 		}
 	},
