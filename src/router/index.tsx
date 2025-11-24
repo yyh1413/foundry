@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom"
 import BasicLayout from "@/layouts/BasicLayout"
-import ProtectedRoute from "@/components/ProtectedRoute"
+import ProtectedRoute from "./ProtectedRoute"
 import Login from "@/pages/Login"
 import Dashboard from "@/pages/Home"
 import DataIngestion from "@/pages/DataIngestion"
