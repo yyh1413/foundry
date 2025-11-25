@@ -34,7 +34,7 @@ export default function TopNavBar({
 					<div className="w-2 h-2 rounded-full animate-pulse bg-foundry-secondary" />
 					FOUNDRY
 					<span className="text-[10px] font-mono opacity-60 text-foundry-text-secondary">
-						v2.0
+						v1.0
 					</span>
 				</div>
 

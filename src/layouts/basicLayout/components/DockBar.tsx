@@ -33,10 +33,9 @@ export default function DockBar({
 							<div
 								className={`
                   w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-300 border shadow-lg
-                  ${
-										isActive
-											? "bg-gradient-to-b from-foundry-primary to-foundry-primary-dark text-white border-white/20 shadow-[0_0_20px_rgba(24,144,255,0.6)]"
-											: "bg-white/5 text-foundry-text-secondary border-white/5 hover:bg-white/10 hover:text-white hover:border-white/20"
+                  ${isActive
+										? "bg-gradient-to-b from-foundry-primary to-foundry-primary-dark text-white border-white/20 shadow-[0_0_20px_rgba(24,144,255,0.6)]"
+										: "bg-white/5 text-foundry-text-secondary border-white/5 hover:bg-white/10 hover:text-white hover:border-white/20"
 									}
                 `}
 							>
@@ -50,9 +49,8 @@ export default function DockBar({
 
 							{/* 已打开指示器（小圆点） */}
 							<span
-								className={`absolute -bottom-2 w-1 h-1 rounded-full bg-foundry-secondary transition-opacity duration-300 ${
-									isOpen ? "opacity-100" : "opacity-0"
-								}`}
+								className={`absolute -bottom-2 w-1 h-1 rounded-full bg-foundry-secondary transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"
+									}`}
 							/>
 						</button>
 					)

@@ -7,8 +7,7 @@
 	--color-foundry-primary-dark: #096dd9;
 	--color-foundry-primary-light: #40a9ff;
 
-	/* 次要色 - 青色 */
-	--color-foundry-secondary: #13c2c2;
+	--color-foundry-secondary: #ff6b35;
 	--color-foundry-secondary-dark: #08979c;
 
 	/* 背景色 - 以 #141414 为主 */
@@ -33,6 +32,10 @@
 	--color-foundry-warning: #faad14;
 	--color-foundry-error: #ff4d4f;
 	--color-foundry-info: #1890ff;
+
+	/* 强调色 - 用于侧边栏激活状态 */
+	--color-foundry-accent: rgba(24, 144, 255, 0.15);
+	--color-foundry-highlight: #1890ff;
 }
 
 /* ===== 传统 CSS 变量（用于 style 属性） ===== */
@@ -55,6 +58,8 @@
 	--foundry-warning: var(--color-foundry-warning);
 	--foundry-error: var(--color-foundry-error);
 	--foundry-info: var(--color-foundry-info);
+	--foundry-accent: var(--color-foundry-accent);
+	--foundry-highlight: var(--color-foundry-highlight);
 	--foundry-glass-bg: rgba(31, 31, 31, 0.7);
 	--foundry-overlay: rgba(20, 20, 20, 0.95);
 }
@@ -106,4 +111,9 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
 	background: var(--foundry-border-light);
+}
+
+
+button {
+	cursor: pointer;
 }

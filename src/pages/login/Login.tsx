@@ -61,6 +61,10 @@ export default function Login() {
 					autoComplete="off"
 					size="large"
 					layout="vertical"
+					initialValues={{
+						username: "admin",
+						password: "123456",
+					}}
 				>
 					<Form.Item
 						name="username"

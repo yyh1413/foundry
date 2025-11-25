@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import { APPS, getAppByPath, type AppId } from "@/constants"
-import TopNavBar from "@/layouts/components/TopNavBar"
-import DockBar from "@/layouts/components/DockBar"
+import TopNavBar from "@/layouts/basicLayout/components/TopNavBar"
+import DockBar from "@/layouts/basicLayout/components/DockBar"
 import { useUserStore } from "@/store"
 
 export default function BasicLayout() {
