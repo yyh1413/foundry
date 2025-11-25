@@ -75,7 +75,7 @@ request.interceptors.response.use(
 	},
 )
 
-export default request
+
 
 // 封装常用请求方法
 export const get = <T = any>(
@@ -106,4 +106,11 @@ export const del = <T = any>(
 	config?: AxiosRequestConfig,
 ): Promise<T> => {
 	return request.delete(url, config)
+}
+export default {
+	get,
+	post,
+	put,
+	del,
+
 }
