@@ -98,7 +98,24 @@ export const APPS: Application[] = [
 
 // 根据路径查找应用
 export const getAppByPath = (path: string): Application | undefined => {
-	return APPS.find((app) => app.path === path)
+	// 规范化路径：移除末尾斜杠（除非是根路径）
+	const normalizedPath = path === '/' ? path : path.replace(/\/$/, '')
+
+	// 首先尝试精确匹配
+	const exactMatch = APPS.find((app) => app.path === normalizedPath)
+	if (exactMatch) {
+		return exactMatch
+	}
+
+	const sortedApps = [...APPS].sort((a, b) => b.path.length - a.path.length)
+
+	return sortedApps.find((app) => {
+		// 排除根路径，避免 / 匹配所有路径
+		if (app.path === '/') {
+			return false
+		}
+		return normalizedPath.startsWith(app.path + '/') || normalizedPath === app.path
+	})
 }
 
 // 根据ID查找应用

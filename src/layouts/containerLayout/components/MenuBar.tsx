@@ -49,7 +49,7 @@ const MenuBar = () => {
                     className={`
                     px-5 py-2.5 text-sm cursor-pointer transition-all flex items-center gap-3
                     ${active
-                        ? 'bg-foundry-accent text-white border-r-2 border-foundry-highlight'
+                        ? 'bg-foundry-accent/50 text-white border-r-2 border-foundry-highlight'
                         : 'text-slate-400 hover:bg-white/5 hover:text-white'
                       }
                   `}

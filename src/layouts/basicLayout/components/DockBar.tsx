@@ -1,4 +1,4 @@
-import { APPS, type AppId } from "@/constants"
+import { APPS, type AppId } from "@/constants/tab"
 
 interface DockBarProps {
 	openApps: AppId[]

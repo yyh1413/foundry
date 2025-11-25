@@ -1,6 +1,6 @@
 import { Bell, LogOut, User, X } from "lucide-react"
 import { useNavigate } from "react-router-dom"
-import { APPS, type AppId } from "@/constants"
+import { APPS, type AppId } from "@/constants/tab"
 import { useUserStore } from "@/store"
 
 interface TopNavBarProps {
@@ -55,10 +55,9 @@ export default function TopNavBar({
 								onClick={() => onAppClick(id)}
 								className={`
                   group flex items-center gap-2 px-3 py-1.5 rounded-md text-xs cursor-pointer transition-all border
-                  ${
-										isActive
-											? "bg-foundry-primary/20 border-foundry-primary/50 text-white shadow-[0_0_10px_rgba(24,144,255,0.2)]"
-											: "bg-white/5 border-transparent text-foundry-text-secondary hover:bg-white/10 hover:text-white"
+                  ${isActive
+										? "bg-foundry-primary/10 border-foundry-primary/50 text-white shadow-[0_0_10px_rgba(24,144,255,0.2)]"
+										: "bg-white/5 border-transparent text-foundry-text-secondary hover:bg-white/10 hover:text-white"
 									}
                 `}
 							>
